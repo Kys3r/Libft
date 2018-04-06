@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_lstdelone.c                                   .::    .:/ .      .::   */
+/*   ft_strmerge.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: albarbos <albarbos@student.42.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/19 19:00:47 by albarbos     #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/19 15:35:43 by albarbos    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/19 15:40:01 by albarbos     #+#   ##    ##    #+#       */
+/*   Updated: 2018/02/19 15:33:55 by albarbos    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
+char	*ft_strmerge(char *s1, char *s2)
 {
-	if (!alst || !*alst || !del)
-		return ;
-	del((*alst)->content, (*alst)->content_size);
-	free(*alst);
-	*alst = NULL;
+	char	*res;
+
+	res = ft_strjoin((const char *)s1, (const char *)s2);
+	free(s1);
+	return (res);
 }

@@ -68,7 +68,13 @@ RAW_SRCS =\
 			ft_lstmap.c \
 			ft_swap.c \
 			ft_power.c \
-			
+			ft_leak_sub.c \
+			ft_search_rc.c \
+			ft_strmerge.c \
+			ft_strndup.c \
+			ft_count_word.c \
+			get_next_line.c \
+
 OBJ = $(RAW_SRCS:.c=.o)
 
 CC = gcc
@@ -78,7 +84,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
-	
+
 $(OBJ):
 	$(CC) $(CFLAGS) -I $(INC_DIR) -c $(RAW_SRCS)
 

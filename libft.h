@@ -1,13 +1,14 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: albarbos <albarbos@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/13 15:23:05 by albarbos          #+#    #+#             */
-/*   Updated: 2017/11/20 10:43:52 by albarbos         ###   ########.fr       */
-/*                                                                            */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   libft.h                                          .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: albarbos <albarbos@student.42.fr>          +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2017/11/13 15:23:05 by albarbos     #+#   ##    ##    #+#       */
+/*   Updated: 2018/04/05 14:10:32 by albarbos    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
@@ -15,7 +16,9 @@
 
 # include <stdlib.h>
 # include <string.h>
+# include <stdio.h>
 # include <unistd.h>
+# include <fcntl.h>
 
 typedef struct		s_list
 {
@@ -24,6 +27,17 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+# define BUFF_SIZE 42
+
+typedef struct		s_lst
+{
+	struct s_lst	*next;
+	char			*save;
+	int				fd;
+	int				ret_count;
+}					t_lst;
+
+int					get_next_line(const int fd, char **line);
 int					ft_power(int nb, int power);
 void				ft_swap(char *a, char *b);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
@@ -88,5 +102,10 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strtrim(char const *s);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+char				*ft_leak_sub(char const *s, unsigned int start, size_t len);
+int					ft_search_rc(char *str, int param);
+char				*ft_strmerge(char *s1, char *s2);
+char        		*ft_strndup(const char *s, size_t n);
+int					ft_count_word(const char *str, int c);
 
 #endif
